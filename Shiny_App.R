@@ -8,28 +8,28 @@ ENB2012_data <- rio::import(file = url)
 library(shinythemes)
 
 ui <- fluidPage(theme = shinytheme("flatly"),
-                headerPanel("ISITMA VE SOĞUTMA YÜKLERİ HESAPLAMA MOTORU"),
+                headerPanel("Energy-Efficiency"),
                 fluidRow(
                   column(4,
                          wellPanel(
-                           numericInput("x1", "Nispi Yoğunluk:", 0.98),
-                           numericInput("x2", "Yüzey Alanı:", 514.5),
-                           numericInput("x3", "Duvar Alanı:", 294.0),
-                           numericInput("x4", "Çatı Alanı:", 110.25),
-                           numericInput("x5", "Toplam Yükseklik:", 7.0),
-                           numericInput("x6", "Yönlendirme:", 2),
-                           numericInput("x7", "Cam Alanı:", 0),
-                           numericInput("x8", "Cam Alanı Dağılımı:", 0),
-                           actionButton("hl_but", "Isıtma Yükü Hesapla",
+                           numericInput("x1", "Relative Compactness:", 0.98),
+                           numericInput("x2", "Surface Area:", 514.5),
+                           numericInput("x3", "Wall Area:", 294.0),
+                           numericInput("x4", "Roof Area:", 110.25),
+                           numericInput("x5", "Overall Height:", 7.0),
+                           numericInput("x6", "Orientation:", 2),
+                           numericInput("x7", "Glazing Area:", 0),
+                           numericInput("x8", "Glazing Area Distribution:", 0),
+                           actionButton("hl_but", "Heating Load",
                                         class = "btn-success"),
-                           actionButton("cl_but", "Soğutma Yükü Hesapla",
+                           actionButton("cl_but", "Cooling Load",
                                         class = "btn-success")
                          )
                   ),
                   column(8,
                          tabsetPanel(
-                           tabPanel("Isıtma Yükü", textOutput("hl")),
-                           tabPanel("Soğutma Yükü", textOutput("cl"))
+                           tabPanel("Heating Load", textOutput("hl")),
+                           tabPanel("Cooling Load", textOutput("cl"))
                          )
                   )
                 )
